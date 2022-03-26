@@ -190,9 +190,9 @@ apply<HiPlugin>()
 找不到apply，但是使用id却没问题。
 
 ## 参考
-(自定义Gradle参考文档)[https://101.dev/t/gradle-agp-api/525]
-(迁移KTS参考文档)[https://developer.android.google.cn/studio/build/migrate-to-kts]
-(参考IOSched项目)[https://github.com/google/iosched]
+[自定义Gradle参考文档](https://101.dev/t/gradle-agp-api/525)
+[迁移KTS参考文档](https://developer.android.google.cn/studio/build/migrate-to-kts)
+[参考IOSched项目](https://github.com/google/iosched)
 
 ---
 
