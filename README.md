@@ -1,11 +1,15 @@
 # Gradle7自定义Gradle插件
 
-Bumblebee支持KTS创建的脚本，Groovy测试发现找不到脚本id。
-演示如何创建Gradle-KTS脚本，成功运行本地脚本项目，全部迁移至KTS。
+Bumblebee支持KTS创建的脚本，Groovy测试发现找不到脚本id。 演示如何创建Gradle-KTS脚本，成功运行本地脚本项目，全部迁移至KTS。
+
+演示2中方式打包插件
+
+## buildSrc
 
 ## 迁移前后对比
 
 setting.gradle
+
 ```Groovy
 pluginManagement {
     repositories {
@@ -21,17 +25,19 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-include':app'
+include ':helloplugin'
 rootProject.name = "GradlePlugin"
 ```
 
 setting.gradle.kts
+
 ```Kotlin
-include (":app")// 可变参数，添加其他module
+include(":helloplugin")// 可变参数，添加其他module
 rootProject.name = "GradleKTSPlugin"
 ```
 
 build.gradle
+
 ```Groovy
 plugins {
     id 'com.android.application' version '7.1.1' apply false
@@ -123,6 +129,7 @@ dependencies {
 ```
 
 app/build.gradle.kts
+
 ```Kotlin
 plugins {
     id("com.android.application")
@@ -183,21 +190,45 @@ dependencies {
 }
 ```
 
+## Composite Build
+
+独立插件，包含setting.gradle，build.gradle，发布给其他人使用。
+
+新建Plugin文件夹，创建standalone文件夹，创建src/main/kotlin文件夹，创建包名com.laychv.standalone
+
+如果编译出现问题，单独编译Plugin项目，但是会产生多余文件:可以删除
+
+build.gradle/gradlew/gradlew.bat/local.properties
+
+产生多余的文件夹：
+
+gradle/.gradle/.idea
+
 ## 问题
 
 引入插件
+
 apply<HiPlugin>()
+
 找不到apply，但是使用id却没问题。
 
 ## 参考
+
+buildSrc参考
+
 [自定义Gradle参考文档](https://101.dev/t/gradle-agp-api/525)
+
 [迁移KTS参考文档](https://developer.android.google.cn/studio/build/migrate-to-kts)
+
 [参考IOSched项目](https://github.com/google/iosched)
+
+独立插件参考
+
+[SampleCompositeBuild](https://docs.gradle.org/current/samples/sample_composite_builds_basics.html)
 
 ---
 
 附上Android Studio版本
-
 
 ```
 Android Studio Bumblebee | 2021.1.1 Patch 1

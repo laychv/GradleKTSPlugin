@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     // 运行脚本插件 id
     id("com.laychv.gradle")
+    id("com.laychv.standalone")
 }
 
 android {
