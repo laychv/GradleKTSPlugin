@@ -9,6 +9,6 @@ import org.gradle.api.Project
 class StandalonePlugin : Plugin<Project> {
 
     override fun apply(project: Project) {
-        println("This is Standalone Plugin ${project.parent?.name}")
+        println("This is Standalone Plugin From ##Standalone## : ${project.parent?.name}")
     }
 }

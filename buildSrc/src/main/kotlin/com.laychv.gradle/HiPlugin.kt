@@ -11,7 +11,7 @@ import org.gradle.kotlin.dsl.create
 class HiPlugin : Plugin<Project> {
 
     override fun apply(project: Project) {
-        println("This is Hi Plugin ${project.parent?.name}")
+        println("This is Hi Plugin From ##buildSrc## : ${project.parent?.name}")
         project.tasks.create<HiTask>("HiTask")
     }
 }
