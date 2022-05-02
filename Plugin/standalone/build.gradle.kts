@@ -7,12 +7,13 @@ plugins {
 repositories {
     gradlePluginPortal()
     mavenCentral()
+    google()
 }
 
 dependencies {
     implementation(gradleApi())
     // 这里可以引用更多其他第三方库
-    compileOnly("com.android.tools.build:gradle:7.1.1")
+    compileOnly("com.android.tools.build:gradle:7.1.3")
 }
 
 gradlePlugin {
